@@ -11,7 +11,7 @@
 - Debezium Kafka Connect.
 - Apache Kafka.
 
-###[Solution Overview](images/1.png)
+###![Solution Overview](images/1.png)
 
 ### Usage
 ``` shell
