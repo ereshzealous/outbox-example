@@ -21,6 +21,7 @@ public final class OutboxEventsUtil {
 
 	public static OutboxEvent createNewUserEvent(UserDTO usersDTO) {
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
 		JsonNode jsonNode = mapper.convertValue(usersDTO, JsonNode.class);
 		OutboxEvent event = DTOConversionUtil.toOutboxEvent(usersDTO.getId(), EventType.INSERT.getType(), jsonNode, Topics.NEW_USER_CREATED.getTopic(),
 		                                                    AggregateName.USER.getAggregate());
@@ -29,6 +30,7 @@ public final class OutboxEventsUtil {
 
 	public static OutboxEvent createNewsletterSubscriptions(SubscriptionsEventDTO dto) {
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule());
 		JsonNode jsonNode = mapper.convertValue(dto, JsonNode.class);
 		OutboxEvent event = DTOConversionUtil.toOutboxEvent(dto.getUserId(), EventType.INSERT.getType(), jsonNode,
 		                                                    Topics.USER_SUBSCRIBED_TO_NEWS_LETTERS.getTopic(), AggregateName.USER.getAggregate());

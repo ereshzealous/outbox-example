@@ -12,6 +12,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 /**
  * Created on 17/August/2021 By Author Eresh, Gorantla
  **/
@@ -65,6 +67,7 @@ public final class DTOConversionUtil {
 		users.setFullName(dto.getFullName());
 		users.setMobileNumber(dto.getMobileNumber());
 		users.setEmail(dto.getEmail());
+		users.setCreatedAt(LocalDateTime.now());
 		return users;
 	}
 
