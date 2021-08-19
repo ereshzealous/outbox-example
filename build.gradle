@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.eresh.outbox'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.apache.kafka', name: 'connect-json', version: '2.6.0'
+    implementation group: 'org.apache.kafka', name: 'connect-api', version: '2.6.0'
+}
+
+test {
+    useJUnitPlatform()
+}

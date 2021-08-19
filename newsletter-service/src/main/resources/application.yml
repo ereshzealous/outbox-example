@@ -1,0 +1,18 @@
+server:
+  port: 9001
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        new-user-in:
+          destination: new_user
+          group: new_user-0
+
+        email-changed-in:
+          destination: email_changed
+          group: email_changed-0
+
+        news-letter-subscription-in:
+          destination: news_letter_subscription
+          group: news_letter_subscription-0
